@@ -8,17 +8,17 @@ int main() {
     // Declarando as variáveis
     char nome[1000][30], data_nasc[1000][15];
     char busca[20], CPF[1000][20]; // formato xxx.xxx.xxx-xx
-    int idade[1000], resposta, i = 0, Pacientes = 0, encontrado,D;
+    int idade[1000], resposta, i = 0, Pacientes = 0, encontrado, j;
     char Sexo[1000]; // M ou F
     char contato[1000][20]; // formato (xx)xxxxx-xxxx
-    char historico[1000][100],exames[1000][100], data[1000][15]; 
-    char resultado[1000][100], observacao[1000][100], recomendacao[1000][100],continuar, vontade;
+    char historico[1000][100], exames[1000][100], data[1000][15]; 
+    char resultado[1000][100], observacao[1000][100], recomendacao[1000][100], continuar;
 
     do {
-        printf("------------------------------\n");
+        printf("\n------------------------------\n");
         printf("PRONTUARIO ELETRONICO\n");
         printf("------------------------------\n");
-        printf("\nMENU:\n");
+        printf("MENU:\n");
         printf("1- Cadastrar um novo Prontuario\n");
         printf("2- Listar todos os Prontuarios\n");
         printf("3- Buscar um Prontuario\n");
@@ -27,80 +27,75 @@ int main() {
         printf("6- Sair\n");
         printf("------------------------------\n");
 
-        printf("\nO que deseja fazer no sistema? (Insira o numero que acompanha a opcao que deseja.)");
+        printf("\nO que deseja fazer no sistema? ");
         scanf("%d", &resposta);
         getchar(); // Limpar o buffer do teclado
 
         switch (resposta) {
             case 1:
-            //cadastrando um novo prontuario
-            do{
-                printf("------------------------------\n");
-                printf("\nCadastro de novo prontuario\n");
-                printf("------------------------------\n");
+                do {
+                    printf("------------------------------\n");
+                    printf("\nCadastro de novo prontuario\n");
+                    printf("------------------------------\n");
 
-                printf("Nome do Paciente:");
-                fgets(nome[Pacientes], sizeof(nome[Pacientes]), stdin);
-                nome[Pacientes][strcspn(nome[Pacientes], "\n")] = '\0';
+                    printf("Nome do Paciente: ");
+                    fgets(nome[Pacientes], sizeof(nome[Pacientes]), stdin);
+                    nome[Pacientes][strcspn(nome[Pacientes], "\n")] = '\0';
 
-                printf("CPF (xxx.xxx.xxx-xx):");
-                fgets(CPF[Pacientes], sizeof(CPF[Pacientes]), stdin);
-                CPF[Pacientes][strcspn(CPF[Pacientes], "\n")] = '\0';
+                    printf("CPF (xxx.xxx.xxx-xx): ");
+                    fgets(CPF[Pacientes], sizeof(CPF[Pacientes]), stdin);
+                    CPF[Pacientes][strcspn(CPF[Pacientes], "\n")] = '\0';
 
-                printf("Data de nascimento (dd/mm/aaaa):");
-                fgets(data_nasc[Pacientes], sizeof(data_nasc[Pacientes]), stdin);
-                data_nasc[Pacientes][strcspn(data_nasc[Pacientes], "\n")] = '\0';
+                    printf("Data de nascimento (dd/mm/aaaa): ");
+                    fgets(data_nasc[Pacientes], sizeof(data_nasc[Pacientes]), stdin);
+                    data_nasc[Pacientes][strcspn(data_nasc[Pacientes], "\n")] = '\0';
 
-                printf("Idade:");
-                scanf("%d", &idade[Pacientes]);
-                getchar();
+                    printf("Idade: ");
+                    scanf("%d", &idade[Pacientes]);
+                    getchar();
 
-                printf("Sexo (M/F):");
-                scanf("%c", &Sexo[Pacientes]);
-                getchar();
+                    printf("Sexo (M/F): ");
+                    scanf("%c", &Sexo[Pacientes]);
+                    getchar();
 
-                printf("Telefone para contato (xx)xxxxx-xxxx:");
-                fgets(contato[Pacientes], sizeof(contato[Pacientes]), stdin);
-                contato[Pacientes][strcspn(contato[Pacientes], "\n")] = '\0';
+                    printf("Telefone para contato (xx)xxxxx-xxxx: ");
+                    fgets(contato[Pacientes], sizeof(contato[Pacientes]), stdin);
+                    contato[Pacientes][strcspn(contato[Pacientes], "\n")] = '\0';
 
-                printf("Historico medico:");
-                fgets(historico[Pacientes], sizeof(historico[Pacientes]), stdin);
-                historico[Pacientes][strcspn(historico[Pacientes], "\n")] = '\0';
+                    printf("Historico medico: ");
+                    fgets(historico[Pacientes], sizeof(historico[Pacientes]), stdin);
+                    historico[Pacientes][strcspn(historico[Pacientes], "\n")] = '\0';
 
-                printf("Exames realizados:");
-                fgets(exames[Pacientes], sizeof(exames[Pacientes]), stdin);
-                exames[Pacientes][strcspn(exames[Pacientes], "\n")] = '\0';
+                    printf("Exames realizados: ");
+                    fgets(exames[Pacientes], sizeof(exames[Pacientes]), stdin);
+                    exames[Pacientes][strcspn(exames[Pacientes], "\n")] = '\0';
 
-                printf("Data da realizacao dos exames:");
-                fgets(data[Pacientes], sizeof(data[Pacientes]), stdin);
-                data[Pacientes][strcspn(data[Pacientes], "\n")] = '\0';
+                    printf("Data da realizacao dos exames: ");
+                    fgets(data[Pacientes], sizeof(data[Pacientes]), stdin);
+                    data[Pacientes][strcspn(data[Pacientes], "\n")] = '\0';
 
-                printf("Resultado dos exames:");
-                fgets(resultado[Pacientes], sizeof(resultado[Pacientes]), stdin);
-                resultado[Pacientes][strcspn(resultado[Pacientes], "\n")] = '\0';
+                    printf("Resultado dos exames: ");
+                    fgets(resultado[Pacientes], sizeof(resultado[Pacientes]), stdin);
+                    resultado[Pacientes][strcspn(resultado[Pacientes], "\n")] = '\0';
 
-                printf("Observacao:");
-                fgets(observacao[Pacientes], sizeof(observacao[Pacientes]), stdin);
-                observacao[Pacientes][strcspn(observacao[Pacientes], "\n")] = '\0';
+                    printf("Observacao: ");
+                    fgets(observacao[Pacientes], sizeof(observacao[Pacientes]), stdin);
+                    observacao[Pacientes][strcspn(observacao[Pacientes], "\n")] = '\0';
 
-                printf("Recomendacao medica:");
-                fgets(recomendacao[Pacientes], sizeof(recomendacao[Pacientes]), stdin);
-                recomendacao[Pacientes][strcspn(recomendacao[Pacientes], "\n")] = '\0';
+                    printf("Recomendacao medica: ");
+                    fgets(recomendacao[Pacientes], sizeof(recomendacao[Pacientes]), stdin);
+                    recomendacao[Pacientes][strcspn(recomendacao[Pacientes], "\n")] = '\0';
 
-                // Incrementando o contador de pacientes
-                Pacientes++;
+                    Pacientes++;
+                    printf("\nProntuário cadastrado com sucesso!\n");
 
-                printf("\nProntuário cadastrado com sucesso!\n");
-
-                //Perguntando se o usúario deseja continuar a realizar a opção esolhida anteriormente
-                printf("\nDeseja cadastrar um novo prontuario? (S/N): ");
-                scanf(" %c", &continuar);
-                getchar();
-            }while( continuar == 'S' || continuar == 's');
-            break;
+                    printf("\nDeseja cadastrar um novo prontuario? (S/N): ");
+                    scanf(" %c", &continuar);
+                    getchar();
+                } while(continuar == 'S' || continuar == 's');
+                break;
 
             case 2:
-            //imprimindo a lista de prontuarios cadastrados
                 printf("------------------------------\n");
                 printf("\nLISTA DE PRONTUARIOS:\n");
                 printf("------------------------------\n");
@@ -126,237 +121,146 @@ int main() {
                 break;
 
             case 3:
-            //buscando prontuario e imprimindo na tela
-            do{
-                printf("------------------------------\n");
-                printf("\nBUSCANDO PRONTUARIO\n");
-                printf("------------------------------\n");
-                encontrado = 0;
-    
-                printf("Digite o CPF do paciente que deseja encontrar o prontuario (xxx.xxx.xxx-xx): ");
-                scanf(" %s", &busca);
-                getchar();
+                do {
+                    printf("------------------------------\n");
+                    printf("\nBUSCANDO PRONTUARIO\n");
+                    printf("------------------------------\n");
+                    encontrado = 0;
+        
+                    printf("Digite o CPF do paciente que deseja encontrar (xxx.xxx.xxx-xx): ");
+                    fgets(busca, sizeof(busca), stdin);
+                    busca[strcspn(busca, "\n")] = '\0';
 
-                for(i=0; i< Pacientes; i++){  
-                    if(strcmp(busca, CPF[i]) == 0){
-                        printf("\n------------------------------\n");
-                        printf("Nome do paciente: %s\n", nome[i]);
-                        printf("CPF: %s\n", CPF[i]);
-                        printf("Data de nascimento: %s\n", data_nasc[i]);
-                        printf("Idade: %d\n", idade[i]);
-                        printf("Sexo: %c\n", Sexo[i]);
-                        printf("Contato: %s\n", contato[i]);
-                        printf("Historico medico: %s\n", historico[i]);
-                        printf("Exames realizados: %s\n", exames[i]);
-                        printf("Data da realizacao dos exames: %s\n", data[i]);
-                        printf("Resultado dos exames: %s\n", resultado[i]);
-                        printf("Observacao: %s\n", observacao[i]);
-                        printf("Recomendacao medica: %s\n", recomendacao[i]);
-                        printf("------------------------------\n");
-                        encontrado = 1;
+                    for(i = 0; i < Pacientes; i++) {  
+                        if(strcmp(busca, CPF[i]) == 0) {
+                            printf("\n------------------------------\n");
+                            printf("Nome do paciente: %s\n", nome[i]);
+                            printf("CPF: %s\n", CPF[i]);
+                            printf("Data de nascimento: %s\n", data_nasc[i]);
+                            printf("Idade: %d\n", idade[i]);
+                            printf("Sexo: %c\n", Sexo[i]);
+                            printf("Contato: %s\n", contato[i]);
+                            printf("Historico medico: %s\n", historico[i]);
+                            printf("Exames realizados: %s\n", exames[i]);
+                            printf("Data da realizacao dos exames: %s\n", data[i]);
+                            printf("Resultado dos exames: %s\n", resultado[i]);
+                            printf("Observacao: %s\n", observacao[i]);
+                            printf("Recomendacao medica: %s\n", recomendacao[i]);
+                            printf("------------------------------\n");
+                            encontrado = 1;
+                        }
                     }
-                }
-                if(encontrado == 0){
-                    printf("Prontuario nao cadastrado no sistema!");
-                }
-                //Perguntando se o usúario deseja continuar a realizar a opção esolhida anteriormente
-                printf("\nDeseja buscar outro prontuario? (S/N): ");
-                scanf(" %c", &continuar);
-                getchar();
-
-            }while( continuar == 'S' || continuar == 's');
-            break;
+                    if(encontrado == 0) {
+                        printf("Prontuario nao cadastrado no sistema!\n");
+                    }
+                    printf("\nDeseja buscar outro prontuario? (S/N): ");
+                    scanf(" %c", &continuar);
+                    getchar();
+                } while(continuar == 'S' || continuar == 's');
+                break;
 
             case 4:
-            //alterar um prontuario existente
-            do{
-                printf("------------------------------\n");
-                printf("\n ALTERANDO PRONTUARIO\n");
-                printf("------------------------------\n");
-                printf("Digite o CPF do paciente que deseja encontrar o prontuario para alterar as informacoes (xxx.xxx.xxx-xx): ");
-                scanf(" %s", &busca);
-                encontrado = 0;
+                // ALTERAR UM PRONTUÁRIO EXISTENTE
+                do {
+                    printf("------------------------------\n");
+                    printf("\nALTERANDO PRONTUARIO\n");
+                    printf("------------------------------\n");
+                    encontrado = 0;
 
-                for(i=0; i< Pacientes; i++){
-                    if(strcmp(busca, CPF[i]) == 0){
-                        encontrado = 1;
-                        printf("\n------------------------------\n");
-                        printf("\nNome do paciente: %s\n", nome[i]);
-                        printf("Deseja alterar o nome do paciente? (S/N)");
-                        scanf(" %c", &vontade);
-                        getchar();
-                        if( vontade == 'S' || vontade == 's'){
-                            printf("Digite o novo nome do Paciente:");
+                    printf("Digite o CPF do paciente que deseja alterar (xxx.xxx.xxx-xx): ");
+                    fgets(busca, sizeof(busca), stdin);
+                    busca[strcspn(busca, "\n")] = '\0';
+
+                    for(i = 0; i < Pacientes; i++) {
+                        if(strcmp(busca, CPF[i]) == 0) {
+                            encontrado = 1;
+                            printf("\nPaciente encontrado: %s. Insira os novos dados:\n", nome[i]);
+                            
+                            printf("Novo Nome: ");
                             fgets(nome[i], sizeof(nome[i]), stdin);
                             nome[i][strcspn(nome[i], "\n")] = '\0';
-                        }
 
-                        printf("\nCPF: %s\n", CPF[i]);
-                        printf("Deseja alterar o CPF do paciente? (S/N)");
-                        scanf(" %c", &vontade);
-                        getchar();
-                        if( vontade == 'S' || vontade == 's'){
-                            printf("Digite o novo CPF do Paciente:");
-                            fgets(CPF[i], sizeof(CPF[i]), stdin);
-                            CPF[i][strcspn(CPF[i], "\n")] = '\0';
-                        }
+                            printf("Nova Idade: ");
+                            scanf("%d", &idade[i]);
+                            getchar();
 
-                        printf("\nData de nascimento: %s\n", data_nasc[i]);
-                        printf("Deseja alterar a data de nascimento do paciente? (S/N)");
-                        scanf(" %c", &vontade);
-                        getchar();
-                        if( vontade == 'S' || vontade == 's'){
-                            printf("Digite a nova data de nascimento do Paciente:");
-                            fgets(data_nasc[i], sizeof(data_nasc[i]), stdin);
-                            data_nasc[i][strcspn(data_nasc[i], "\n")] = '\0';
-                        }
-
-                        printf("\nIdade: %d\n", idade[i]);
-                        printf("Deseja alterar a idade do paciente? (S/N)");
-                        scanf(" %c", &vontade);
-                        getchar();
-                        if( vontade == 'S' || vontade == 's'){
-                            printf("Digite a nova idade do Paciente:");
-                            scanf(" %d", &idade[i]);
-                        }
-                        printf("\nSexo: %c\n", Sexo[i]);
-                        printf("Deseja alterar o sexo do paciente? (S/N)");
-                        scanf(" %c", &vontade);
-                        getchar();
-                        if( vontade == 'S' || vontade == 's'){
-                            printf("Digite o novo sexo do Paciente:");
-                            scanf(" %s", &Sexo[i]);
-                        }
-                        printf("\nContato: %s\n", contato[i]);
-                        printf("Deseja alterar o contato do paciente? (S/N)");
-                        scanf(" %c", &vontade);
-                        getchar();
-                        if( vontade == 'S' || vontade == 's'){
-                            printf("Digite o novo contato do Paciente:");
+                            printf("Novo Telefone: ");
                             fgets(contato[i], sizeof(contato[i]), stdin);
                             contato[i][strcspn(contato[i], "\n")] = '\0';
-                        }
-                        printf("\nHistórico médico: %s\n", historico[i]);
-                        printf("Deseja alterar o historico medico do paciente? (S/N)");
-                        scanf(" %c", &vontade);
-                        getchar();
-                        if( vontade == 'S' || vontade == 's'){
-                            printf("Digite o novo historico medico do paciente:");
+
+                            printf("Novo Historico medico: ");
                             fgets(historico[i], sizeof(historico[i]), stdin);
                             historico[i][strcspn(historico[i], "\n")] = '\0';
-                        }
-                        printf("\nExames realizados: %s\n", exames[i]);
-                        printf("Deseja alterar os exames realizados do paciente? (S/N)");
-                        scanf(" %c", &vontade);
-                        getchar();
-                        if( vontade == 'S' || vontade == 's'){
-                            printf("Digite os novos exames realizados pelo paciente:");
-                            fgets(exames[i], sizeof(exames[i]), stdin);
-                            exames[i][strcspn(exames[i], "\n")] = '\0';
-                        }
-                        printf("\nData da realizacao dos exames: %s\n", data[i]);
-                        printf("Deseja alterar a data de realizacao dos exames do paciente? (S/N)");
-                        scanf(" %c", &vontade);
-                        getchar();
-                        if( vontade == 'S' || vontade == 's'){
-                            printf("Digite a nova data de realizacao dos exames do paciente:");
-                            fgets(data[i], sizeof(data[i]), stdin);
-                            data[i][strcspn(data[i], "\n")] = '\0';
-                        }
-                        printf("\nResultado dos exames: %s\n", resultado[i]);
-                        printf("Deseja alterar o resultado dos exames do paciente? (S/N)");
-                        scanf(" %c", &vontade);
-                        getchar();
-                        if( vontade == 'S' || vontade == 's'){
-                            printf("Digite os novos resultados dos exames do paciente:");
-                            fgets(resultado[i], sizeof(resultado[i]), stdin);
-                            resultado[i][strcspn(resultado[i], "\n")] = '\0';
-                        }
-                        printf("\nObservacao: %s\n", observacao[i]);
-                        printf("Deseja alterar as observacoes? (S/N)");
-                        scanf(" %c", &vontade);
-                        getchar();
-                        if( vontade == 'S' || vontade == 's'){
-                            printf("Digite a nova observacao:");
-                            fgets(observacao[i], sizeof(observacao[i]), stdin);
-                            observacao[i][strcspn(observacao[i], "\n")] = '\0';
-                        }
-                        printf("\nRecomendacao medica: %s\n", recomendacao[i]);
-                        printf("Deseja alterar as recomendacoes? (S/N)");
-                        scanf(" %c", &vontade);
-                        getchar();
-                        if( vontade == 'S' || vontade == 's'){
-                            printf("Digite as novas recomendacoes:");
+
+                            printf("Nova Recomendacao medica: ");
                             fgets(recomendacao[i], sizeof(recomendacao[i]), stdin);
                             recomendacao[i][strcspn(recomendacao[i], "\n")] = '\0';
-                        }
-                        printf("------------------------------\n");
-                    }
-                }
-                if( encontrado == 0){
-                    printf("Nao foi encontrado nenhum prontuario cadastrado com este CPF.");
-                }
 
-                //Perguntando se o usúario deseja continuar a realizar a opção esolhida anteriormente
-                printf("\nDeseja buscar outro prontuario? (S/N): ");
-                scanf(" %c", &continuar);
-                getchar();
-            }while( continuar == 'S' || continuar == 's');
-            break;
+                            printf("\nProntuario alterado com sucesso!\n");
+                        }
+                    }
+                    if(!encontrado) {
+                        printf("Prontuario nao encontrado para alteracao.\n");
+                    }
+                    printf("\nDeseja alterar outro prontuario? (S/N): ");
+                    scanf(" %c", &continuar);
+                    getchar();
+                } while(continuar == 'S' || continuar == 's');
+                break;
 
             case 5:
-            //removendo prontuário
-            do{
-                printf("------------------------------\n");
-                printf("\n REMOVENDO PRONTUARIO\n");
-                printf("------------------------------\n");
-                printf("Digite o CPF do paciente que deseja encontrar o prontuario para remover(xxx.xxx.xxx-xx): ");
-                scanf(" %s", &busca);
+                // REMOVER UM PRONTUÁRIO
+                do {
+                    printf("------------------------------\n");
+                    printf("\nREMOVER PRONTUARIO\n");
+                    printf("------------------------------\n");
+                    encontrado = 0;
 
-                for(i=0; i< Pacientes; i++){
-                    if(strcmp(busca, CPF[i]) == 0){
-                        encontrado = 1;
-                        //removendo o prontuário deslocando os dados
-                        for(D = 0; D < Pacientes - 1; D++){
-                            strcpy(nome[D], nome[D + 1]);
-                            strcpy(CPF[D], CPF[D + 1]);
-                            strcpy(data_nasc[D], data_nasc[D + 1]);
-                            idade[D], idade[D + 1];
-                            Sexo[D], Sexo[D + 1];
-                            strcpy(contato[D], contato[D + 1]);
-                            strcpy(historico[D], historico[D + 1]);
-                            strcpy(exames[D], exames[D + 1]);
-                            strcpy(data[D], data[D + 1]);
-                            strcpy(resultado[D], resultado[D + 1]);
-                            strcpy(observacao[D], observacao[D + 1]);
-                            strcpy(recomendacao[D], recomendacao[D + 1]);
+                    printf("Digite o CPF do paciente que deseja remover (xxx.xxx.xxx-xx): ");
+                    fgets(busca, sizeof(busca), stdin);
+                    busca[strcspn(busca, "\n")] = '\0';
+
+                    for(i = 0; i < Pacientes; i++) {
+                        if(strcmp(busca, CPF[i]) == 0) {
+                            encontrado = 1;
+                            
+                            // Move todos os elementos seguintes uma posição para trás
+                            for(j = i; j < Pacientes - 1; j++) {
+                                strcpy(nome[j], nome[j+1]);
+                                strcpy(CPF[j], CPF[j+1]);
+                                strcpy(data_nasc[j], data_nasc[j+1]);
+                                idade[j] = idade[j+1];
+                                Sexo[j] = Sexo[j+1];
+                                strcpy(contato[j], contato[j+1]);
+                                strcpy(historico[j], historico[j+1]);
+                                strcpy(exames[j], exames[j+1]);
+                                strcpy(data[j], data[j+1]);
+                                strcpy(resultado[j], resultado[j+1]);
+                                strcpy(observacao[j], observacao[j+1]);
+                                strcpy(recomendacao[j], recomendacao[j+1]);
+                            }
+                            
+                            // Diminui a quantidade total de pacientes cadastrados
+                            Pacientes--;
+                            printf("\nProntuario removido com sucesso!\n");
+                            break; 
                         }
                     }
-                }
-                Pacientes --;
-                printf("\nProntuario removido com sucesso!\n");
+                    if(!encontrado) {
+                        printf("Prontuario nao encontrado para remocao.\n");
+                    }
+                    printf("\nDeseja remover outro prontuario? (S/N): ");
+                    scanf(" %c", &continuar);
+                    getchar();
+                } while(continuar == 'S' || continuar == 's');
                 break;
-
-                if(encontrado == 0){
-                    printf("Nao foi encontrado nenhum prontuario cadastrado com este CPF.");
-                }
-
-                //Perguntando se o usúario deseja continuar a realizar a opção esolhida anteriormente
-                printf("\nDeseja remover outro prontuario? (S/N): ");
-                scanf(" %c", &continuar);
-                getchar();
-            }while(continuar == 'S' || continuar == 's');
-            break;
 
             case 6:
-            //encerrando o sistema
-            printf("O sistema sera encerrado. (Tecle enter para prosseguir)");
-            getchar();
-            break;
-            
-            default:
-                printf("Opcao invalida!\n");
+                printf("\nSaindo do sistema... Obrigado!\n");
                 break;
+
+            default:
+                printf("\nOpcao invalida! Tente novamente.\n");
         }
 
     } while (resposta != 6);
