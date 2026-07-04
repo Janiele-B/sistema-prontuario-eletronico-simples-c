@@ -1,8 +1,6 @@
 # 🏥 sistema-prontuário-eletrônico-simples-c
 
-![Linguagem C](https://shields.io)
-![Ambiente](https://shields.io)
-![Nível](https://shields.io)
+![Linguagem C]
 
 Este é um sistema de **Prontuário Eletrônico** baseado em terminal desenvolvido inteiramente em **Linguagem C**. O projeto foi criado como parte da minha jornada acadêmica durante o **primeiro período da universidade**, servindo para consolidar conceitos fundamentais de lógica de programação e manipulação de estruturas de dados estáticas (vetores e matrizes de caracteres).
 
