@@ -41,7 +41,7 @@ Você precisará de um compilador GCC instalado no seu computador ou de uma IDE 
    ```
 3. **Compile o código:**
    ```bash
-   gcc -o prontuario principal.c
+   gcc -o prontuario main.c
    ```
 4. **Execute o programa:**
    - **Windows:**
